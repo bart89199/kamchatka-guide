@@ -29,12 +29,20 @@ body {
 header {
   background:
           linear-gradient(135deg, rgba(11, 19, 30, 0.88) 0%, rgba(26, 42, 58, 0.78) 50%, rgba(183, 52, 19, 0.65) 100%),
-          url('https://upload.wikimedia.org/wikipedia/commons/8/88/Klyuchevskaya_Sopka.jpg') center/cover no-repeat;
-  color: #fff;
-  padding: 3.2rem 1.2rem;
-  border-bottom: 3px solid var(--lava);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  position: relative;
+          url('https://commons.wikimedia.org/wiki/Special:FilePath/Eruption_of_Klyuchevskaya_Volcano_(14629).jpg?width=1200') center/cover no-repeat;
+}
+
+/* Сетка из 2 фото рядом (Трамп + Камчатский краб) */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.photo-grid img {
+  margin-top: 0;
+  height: 320px;
 }
 
 .wrap {
