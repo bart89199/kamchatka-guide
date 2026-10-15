@@ -58,7 +58,7 @@ sections.forEach((section, index) => {
         <h2>ВЫ ЛУЧШИЙ!</h2>
 
         <p>
-          Уровень харизмы: <strong>легендарный</strong>.<br>
+          Уровень харизмы: <strong>Супер-пуперский</strong>.<br>
           Уровень преподавания: <strong>вне конкуренции</strong>.
         </p>
 
