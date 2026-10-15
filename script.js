@@ -61,12 +61,6 @@ sections.forEach((section, index) => {
           Уровень харизмы: <strong>Супер-пуперский</strong>.<br>
           Уровень преподавания: <strong>вне конкуренции</strong>.
         </p>
-
-        <div class="teacher-stamp">
-          ОДОБРЕНО<br>
-          <strong>НА 10/10</strong>
-        </div>
-
         <button class="teacher-continue">
           Продолжить быть легендой ↗
         </button>
