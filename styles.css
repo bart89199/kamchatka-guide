@@ -373,6 +373,14 @@ p a:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
+.guide-card-photo {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+}
+
 .photo-placeholder {
   display: flex;
   min-height: 210px;
@@ -532,8 +540,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .photo-placeholder {
-    min-height: 180px;
+  .guide-card-photo {
+    height: 220px;
   }
 
   .route-map {
