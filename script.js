@@ -1,43 +1,69 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sections = [...document.querySelectorAll("#content section")];
   const tabs = document.getElementById("tabs");
+  let routeMap = null;
+
+  const activateSection = (sectionId) => {
+    const targetSection =
+        sections.find((section) => section.id === sectionId) || sections[0];
+
+    if (!targetSection) {
+      return;
+    }
+
+    sections.forEach((item) => {
+      item.classList.toggle("active", item.id === targetSection.id);
+    });
+
+    tabs.querySelectorAll("a").forEach((tab) => {
+      const isActive = tab.dataset.sectionId === targetSection.id;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-current", isActive ? "page" : "false");
+    });
+
+    // Leaflet нужно пересчитать размеры, когда карта
+    // открывается внутри ранее скрытого раздела.
+    if (routeMap && targetSection.id === "guide") {
+      setTimeout(() => {
+        routeMap.invalidateSize();
+      }, 150);
+    }
+  };
 
   // Создаём кнопки навигации автоматически из разделов HTML.
-  sections.forEach((section, index) => {
-    const button = document.createElement("button");
+  sections.forEach((section) => {
+    const link = document.createElement("a");
 
-    button.type = "button";
-    button.textContent = section.dataset.title || section.id;
-    button.classList.toggle("active", index === 0);
-    button.setAttribute("aria-controls", section.id);
-    button.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+    link.href = `#${section.id}`;
+    link.textContent = section.dataset.title || section.id;
+    link.dataset.sectionId = section.id;
+    link.classList.remove("active");
+    link.setAttribute("aria-controls", section.id);
+    link.setAttribute("aria-current", "false");
 
-    button.addEventListener("click", () => {
-      sections.forEach((item) => {
-        item.classList.remove("active");
-      });
-
-      tabs.querySelectorAll("button").forEach((tab) => {
-        tab.classList.remove("active");
-        tab.setAttribute("aria-pressed", "false");
-      });
-
-      section.classList.add("active");
-      button.classList.add("active");
-      button.setAttribute("aria-pressed", "true");
-
-      // Leaflet нужно пересчитать размеры, когда карта
-      // открывается внутри ранее скрытого раздела.
-      if (routeMap && section.id === "guide") {
-        setTimeout(() => {
-          routeMap.invalidateSize();
-        }, 150);
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const targetHash = `#${section.id}`;
+      if (window.location.hash === targetHash) {
+        activateSection(section.id);
+        return;
       }
+      window.location.hash = section.id;
     });
 
     const listItem = document.createElement("li");
-    listItem.appendChild(button);
+    listItem.appendChild(link);
     tabs.appendChild(listItem);
+  });
+
+  const initialHash = decodeURIComponent(window.location.hash.slice(1));
+  activateSection(initialHash);
+
+  window.addEventListener("hashchange", () => {
+    const hashSection = decodeURIComponent(window.location.hash.slice(1));
+    if (sections.some((section) => section.id === hashSection)) {
+      activateSection(hashSection);
+    }
   });
 
   // Координаты основных точек маршрута.
@@ -130,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const mapElement = document.getElementById("kamchatka-route-map");
-  let routeMap = null;
 
   // Если карта или библиотека Leaflet не загрузились,
   // навигация по остальным разделам всё равно работает.

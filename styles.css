@@ -122,7 +122,8 @@ nav li {
   flex: 0 0 auto;
 }
 
-nav button {
+nav a {
+  display: inline-block;
   padding: 0.6rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 999px;
@@ -131,6 +132,7 @@ nav button {
   font: inherit;
   font-size: 0.9rem;
   font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   transition:
@@ -140,21 +142,21 @@ nav button {
           border-color 0.2s ease;
 }
 
-nav button:hover {
+nav a:hover {
   transform: translateY(-1px);
   border-color: rgba(255, 138, 80, 0.7);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
-nav button.active {
+nav a.active {
   border-color: transparent;
   background: linear-gradient(135deg, var(--lava), #d84315);
   color: #fff;
   box-shadow: 0 4px 14px rgba(255, 87, 34, 0.3);
 }
 
-nav button:focus-visible,
+nav a:focus-visible,
 a:focus-visible {
   outline: 3px solid var(--ocean-teal);
   outline-offset: 3px;
