@@ -1,151 +1,186 @@
 :root {
-  /* Тематическая палитра: Базальт, Тихий океан, Вулканическая лава и Гейзерный пар */
   --bg-dark: #0b131e;
   --bg-ocean: #102536;
-  --card-bg: rgba(22, 37, 52, 0.88);
+  --card-bg: rgba(22, 37, 52, 0.92);
   --text-main: #f1f5f9;
   --text-muted: #cbd5e1;
   --lava: #ff5722;
   --lava-glow: #ff8a50;
   --ocean-teal: #00bcd4;
-  --border-color: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(255, 255, 255, 0.14);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
-  background: radial-gradient(circle at top right, #1b354e 0%, var(--bg-dark) 60%, #070b12 100%);
-  background-attachment: fixed;
-  color: var(--text-main);
-  line-height: 1.65;
   min-height: 100vh;
-}
-
-/* Шапка с атмосферой вулканов и океана */
-header {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.65;
+  color: var(--text-main);
   background:
-          linear-gradient(135deg, rgba(11, 19, 30, 0.88) 0%, rgba(26, 42, 58, 0.78) 50%, rgba(183, 52, 19, 0.65) 100%),
-          url('https://commons.wikimedia.org/wiki/Special:FilePath/Eruption_of_Klyuchevskaya_Volcano_(14629).jpg?width=1200') center/cover no-repeat;
-}
-
-/* Сетка из 2 фото рядом (Трамп + Камчатский краб) */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.photo-grid img {
-  margin-top: 0;
-  height: 320px;
+          radial-gradient(
+                  circle at top right,
+                  #1b354e 0,
+                  var(--bg-dark) 58%,
+                  #070b12 100%
+          );
+  background-attachment: fixed;
 }
 
 .wrap {
-  max-width: 980px;
-  margin: 0 auto;
+  width: min(100% - 2rem, 1080px);
+  margin-inline: auto;
+}
+
+/* Шапка */
+
+header {
+  position: relative;
+  padding: 4rem 0 3.5rem;
+  overflow: hidden;
+  background:
+          linear-gradient(
+                  120deg,
+                  rgba(7, 15, 26, 0.94),
+                  rgba(16, 37, 54, 0.76),
+                  rgba(183, 52, 19, 0.52)
+          ),
+          url("https://commons.wikimedia.org/wiki/Special:FilePath/Klyuchevskaya_Sopka.jpg?width=1600")
+          center 45% / cover no-repeat;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
 }
 
 .header-badge {
   display: inline-block;
-  background: rgba(255, 87, 34, 0.25);
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.8rem;
   border: 1px solid var(--lava-glow);
-  color: #ffccbc;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  margin-bottom: 0.8rem;
+  background: rgba(255, 87, 34, 0.18);
+  color: #ffccbc;
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 h1 {
-  margin: 0 0 0.6rem;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  max-width: 850px;
+  margin: 0 0 0.8rem;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.55);
 }
 
 .subtitle {
+  max-width: 760px;
   margin: 0;
   color: #e2e8f0;
-  font-size: 1.1rem;
-  max-width: 720px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Навигация в стиле вулканического стекла */
+/* Навигация */
+
 nav {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(11, 19, 30, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  background: rgba(11, 19, 30, 0.9);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 nav ul {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.55rem;
   overflow-x: auto;
-  list-style: none;
   margin: 0 auto;
-  max-width: 980px;
-  padding: 0.85rem 1rem;
+  padding: 0.8rem 0;
+  list-style: none;
   scrollbar-width: thin;
   scrollbar-color: var(--lava) transparent;
 }
 
+nav li {
+  flex: 0 0 auto;
+}
+
 nav button {
+  padding: 0.6rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 999px;
-  padding: 0.55rem 1.15rem;
-  cursor: pointer;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
+  font: inherit;
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 0.92rem;
   white-space: nowrap;
-  transition: all 0.25s ease;
+  cursor: pointer;
+  transition:
+          background 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease,
+          border-color 0.2s ease;
 }
 
 nav button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
   transform: translateY(-1px);
-  border-color: rgba(255, 138, 80, 0.5);
+  border-color: rgba(255, 138, 80, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 nav button.active {
-  background: linear-gradient(135deg, var(--lava) 0%, #d84315 100%);
-  color: #fff;
   border-color: transparent;
-  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.45);
+  background: linear-gradient(135deg, var(--lava), #d84315);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.3);
 }
 
-/* Основной контент и карточки */
+nav button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--ocean-teal);
+  outline-offset: 3px;
+}
+
+/* Основное содержимое */
+
 main {
-  padding: 1.8rem 1rem 3rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
 }
 
 section {
   display: none;
-  background: var(--card-bg);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  padding: 1.8rem 2rem;
   margin-bottom: 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
   border: 1px solid var(--border-color);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 0.35s ease-out;
+  border-radius: 1rem;
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+section.active {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
 }
 
 @keyframes fadeIn {
@@ -153,283 +188,372 @@ section {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-section.active {
-  display: block;
+h2 {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--lava);
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1.3;
 }
 
-h2 {
-  margin-top: 0;
+h3 {
   color: #fff;
-  font-size: 1.65rem;
-  display: inline-block;
-  border-bottom: 3px solid var(--lava);
-  padding-bottom: 0.3rem;
-  margin-bottom: 1rem;
+}
+
+h4 {
+  color: #fff;
 }
 
 p {
   color: var(--text-muted);
-  margin-bottom: 1rem;
 }
 
 ul {
-  padding-left: 1.3rem;
+  padding-left: 1.4rem;
   color: var(--text-muted);
 }
 
-ul li {
-  margin-bottom: 0.75rem;
+li {
+  margin-bottom: 0.6rem;
 }
 
-ul li strong {
+li strong,
+p strong {
   color: #fff;
 }
 
 /* Теги */
-.tags-container {
-  margin: 1rem 0;
+
+.tags-container,
+.guide-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.4rem;
 }
 
 .tag {
   display: inline-block;
-  background: rgba(0, 188, 212, 0.14);
-  color: #80deea;
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.88rem;
-  font-weight: 500;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding: 0.35rem 0.7rem;
   border: 1px solid rgba(0, 188, 212, 0.35);
+  border-radius: 0.5rem;
+  background: rgba(0, 188, 212, 0.12);
+  color: #80deea;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
-/* Изображения */
-img {
+/* Изображения в обычных разделах */
+
+section > img {
+  display: block;
   width: 100%;
   max-height: 480px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   border: 1px solid var(--border-color);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-  transition: transform 0.3s ease;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-img:hover {
-  transform: scale(1.01);
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-/* Ссылки */
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.2rem 0;
-}
-
-.links a,
-p a {
-  color: var(--lava-glow);
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.links a {
-  background: rgba(255, 87, 34, 0.15);
-  border: 1px solid rgba(255, 87, 34, 0.4);
-  padding: 0.55rem 1rem;
-  border-radius: 0.6rem;
-}
-
-.links a:hover {
-  background: var(--lava);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.35);
+.photo-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 /* Блок интересного факта */
+
 .fact {
   margin-top: 1.4rem;
   padding: 1rem 1.2rem;
-  background: linear-gradient(90deg, rgba(255, 87, 34, 0.14) 0%, rgba(0, 188, 212, 0.08) 100%);
   border-left: 4px solid var(--lava);
   border-radius: 0.5rem;
-  font-size: 0.96rem;
+  background:
+          linear-gradient(
+                  90deg,
+                  rgba(255, 87, 34, 0.14),
+                  rgba(0, 188, 212, 0.07)
+          );
   color: #f8fafc;
+  font-size: 0.96rem;
 }
 
 .fact strong {
   color: var(--lava-glow);
 }
 
-/* Секретная пасхалка преподавателя */
+/* Ссылки */
 
-.teacher-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+}
+
+.links a,
+p a {
+  color: var(--lava-glow);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.links a {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255, 87, 34, 0.4);
+  border-radius: 0.6rem;
+  background: rgba(255, 87, 34, 0.12);
+  transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+}
+
+.links a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 87, 34, 0.28);
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Мой маршрут */
+
+.guide-intro {
+  max-width: 800px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.guide-heading {
+  margin: 2.3rem 0 0.7rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+.guide-grid {
   display: grid;
-  place-items: center;
-  padding: 20px;
-  background: rgba(13, 29, 26, 0.82);
-  backdrop-filter: blur(12px);
-  animation: teacherFadeIn 0.35s ease;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0 2rem;
 }
 
-.teacher-card {
-  position: relative;
-  width: min(100%, 460px);
-  padding: 35px 28px 25px;
-  border-radius: 26px;
+.guide-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 0.85rem;
+  background: rgba(9, 20, 32, 0.72);
+  transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          box-shadow 0.25s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 138, 80, 0.5);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.photo-placeholder {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  background:
+          radial-gradient(
+                  circle at 20% 20%,
+                  rgba(0, 188, 212, 0.15),
+                  transparent 45%
+          ),
+          linear-gradient(135deg, #1a3042, #0c1724);
+  color: var(--text-muted);
   text-align: center;
-  color: #173b35;
-  background: #fffaf0;
-  box-shadow: 0 25px 100px #0005;
-  animation: teacherPopIn 0.55s cubic-bezier(.16, 1, .3, 1);
 }
 
-.teacher-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
+.photo-placeholder > span {
+  font-size: 2.2rem;
+}
+
+.photo-placeholder strong {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.photo-placeholder small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.guide-card-body {
+  padding: 1rem;
+}
+
+.guide-number {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  color: var(--ocean-teal);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.guide-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.guide-card p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+.guide-transport {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  font-size: 0.83rem;
+}
+
+/* Интерактивная карта */
+
+.route-map {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 480px;
+  margin: 1.2rem 0 0.6rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 0.8rem;
+  background: #dbeafe;
+}
+
+.map-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Маркеры на карте */
+
+.route-marker-wrapper {
   border: 0;
   background: transparent;
-  color: #173b35;
-  font-size: 30px;
-  cursor: pointer;
 }
 
-.teacher-label {
-  color: #e65c35;
-  font-size: 10px;
+.route-marker {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--lava);
+  color: #fff;
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-.teacher-emoji {
-  margin: 22px 0 12px;
-  font-size: 95px;
-  animation: teacherFloat 2.5s ease-in-out infinite;
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #102536;
+  color: #f1f5f9;
 }
 
-.teacher-rating {
-  display: inline-block;
-  padding: 7px 16px;
-  border-radius: 30px;
-  color: white;
-  background: #173b35;
-  font-weight: 800;
-  font-size: 13px;
+.leaflet-popup-content {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
 }
 
-.teacher-card h2 {
-  margin: 22px 0 12px;
-  color: #173b35;
-  font-size: clamp(32px, 8vw, 44px);
-  line-height: 1;
-  letter-spacing: -2px;
+.leaflet-container a {
+  color: #ff8a50;
 }
 
-.teacher-card p {
-  color: #686d65;
-  font-size: 13px;
-  line-height: 1.9;
+/* Нижняя часть страницы */
+
+footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+  background: rgba(5, 10, 17, 0.65);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.teacher-card p strong {
-  color: #e65c35;
-}
+/* Адаптация под телефон */
 
-.teacher-stamp {
-  display: inline-block;
-  margin: 12px 0;
-  padding: 8px 15px;
-  border: 2px solid #e65c35;
-  border-radius: 8px;
-  color: #e65c35;
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 1.6;
-  transform: rotate(-5deg);
-}
-
-.teacher-stamp strong {
-  font-size: 15px;
-}
-
-.teacher-continue {
-  width: 100%;
-  margin-top: 15px;
-  padding: 15px;
-  border: none;
-  border-radius: 30px;
-  background: #e65c35;
-  color: white;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.teacher-continue:hover {
-  transform: translateY(-3px);
-  background: #c94726;
-}
-
-.teacher-footer {
-  margin-top: 18px;
-  color: #96978b;
-  font-size: 10px;
-}
-
-.teacher-hiding {
-  animation: teacherFadeOut 0.25s forwards;
-}
-
-@keyframes teacherFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes teacherFadeOut {
-  to { opacity: 0; }
-}
-
-@keyframes teacherPopIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.85) rotate(-2deg);
+@media (max-width: 650px) {
+  header {
+    padding: 3rem 0 2.5rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0);
+
+  nav ul {
+    width: 100%;
+    padding-inline: 1rem;
+  }
+
+  main {
+    padding-top: 1rem;
+  }
+
+  section {
+    border-radius: 0.75rem;
+  }
+
+  .guide-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-placeholder {
+    min-height: 180px;
+  }
+
+  .route-map {
+    height: 360px;
+  }
+
+  .photo-grid img {
+    height: 240px;
   }
 }
 
-@keyframes teacherFloat {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-9px) rotate(3deg); }
-}
-
-@media (max-width: 480px) {
-  .teacher-card {
-    padding: 30px 20px 22px;
-  }
-}
+/* Уменьшение анимаций по настройкам устройства */
 
 @media (prefers-reduced-motion: reduce) {
-  .teacher-overlay,
-  .teacher-card,
-  .teacher-emoji {
-    animation: none !important;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
