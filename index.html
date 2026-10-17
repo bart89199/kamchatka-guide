@@ -1,537 +1,577 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Камчатка — Земля огня и океана</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камчатка — Земля огня и океана</title>
 
-  <link rel="stylesheet" href="styles.css">
-  <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  >
+    <link rel="stylesheet" href="styles.css">
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 </head>
 <body>
 <header>
-  <div class="wrap header-content">
-    <div class="header-badge">🌋 Тихоокеанское огненное кольцо 🌊</div>
-    <h1>Камчатка: Земля огня и океана</h1>
-    <p class="subtitle">
-      Интерактивный путеводитель по географии, людям, культуре,
-      природным ресурсам и моему путешествию по Камчатке.
-    </p>
-  </div>
+    <div class="wrap header-content">
+        <div class="header-badge">🌋 Тихоокеанское огненное кольцо 🌊</div>
+        <h1>Камчатка: Земля огня и океана</h1>
+        <p class="subtitle">
+            Интерактивный путеводитель по географии, людям, культуре,
+            природным ресурсам и моему путешествию по Камчатке.
+        </p>
+    </div>
 </header>
 
 <nav>
-  <ul id="tabs" class="wrap" aria-label="Разделы сайта"></ul>
+    <ul id="tabs" class="wrap" aria-label="Разделы сайта"></ul>
 </nav>
 
 <main class="wrap" id="content">
 
-  <section id="geo" class="active" data-title="География">
-    <h2>География</h2>
-    <p>
-      Камчатский край расположен на северо-востоке России и омывается
-      Тихим океаном, Охотским и Беринговым морями. Здесь находятся
-      действующие вулканы, ледники, горные реки и побережья с чёрным
-      вулканическим песком.
-    </p>
-    <p>
-      Рельеф полуострова определяют горные хребты и вулканические массивы.
-      Климат зависит от близости океана, высоты и расположения района.
-      Значительная часть территории отличается богатой и уникальной природой.
-    </p>
+    <section id="geo" class="active" data-title="География">
+        <h2>География</h2>
+        <p>
+            Камчатский край расположен на северо-востоке России и омывается
+            Тихим океаном, Охотским и Беринговым морями. Здесь находятся
+            действующие вулканы, ледники, горные реки и побережья с чёрным
+            вулканическим песком.
+        </p>
+        <p>
+            Рельеф полуострова определяют горные хребты и вулканические массивы.
+            Климат зависит от близости океана, высоты и расположения района.
+            Значительная часть территории отличается богатой и уникальной природой.
+        </p>
 
-    <div class="tags-container">
-      <span class="tag">Площадь: около 464 тыс. км²</span>
-      <span class="tag">Административный центр: Петропавловск-Камчатский</span>
-      <span class="tag">Вулканы и ледники</span>
-    </div>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Klyuchevskaya_Sopka.jpg?width=1200"
-            alt="Вулканический пейзаж Камчатки"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Камчатка входит в Тихоокеанское огненное кольцо —
-      область высокой сейсмической и вулканической активности.
-    </p>
-  </section>
-
-  <section id="resources" data-title="Ресурсы">
-    <h2>Природные ресурсы</h2>
-    <p>
-      Камчатка богата морскими биологическими ресурсами. Большое значение
-      имеют тихоокеанские лососи, крабы и другие морепродукты.
-    </p>
-    <p>
-      В регионе также есть геотермальные и минеральные источники.
-      Они представляют интерес для энергетики, отдыха и туризма.
-    </p>
-    <ul>
-      <li>Рыба и морепродукты.</li>
-      <li>Геотермальные и минеральные источники.</li>
-      <li>Вулканы, горы и природные территории.</li>
-      <li>Реки, озёра и океаническое побережье.</li>
-    </ul>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Uzon_caldera.jpg?width=1200"
-            alt="Кальдера Узон на Камчатке"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Реки Камчатки имеют большое значение для нереста тихоокеанских лососей.
-    </p>
-  </section>
-
-  <section id="economy" data-title="Экономика">
-    <h2>Экономика</h2>
-    <p>
-      Важнейшие отрасли экономики Камчатского края — рыболовство,
-      переработка морепродуктов, транспорт, энергетика и туризм.
-    </p>
-    <p>
-      Большие расстояния и сложный рельеф делают транспортную
-      инфраструктуру особенно важной. Для многих удалённых районов
-      существенную роль играет авиационное сообщение.
-    </p>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Petropavlovsk-kamchatsky_seaport.jpg?width=1200"
-            alt="Морской порт Петропавловска-Камчатского"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Сезонность рыболовства и туристических поездок заметно влияет
-      на жизнь региона.
-    </p>
-  </section>
-
-  <section id="population" data-title="Население">
-    <h2>Население</h2>
-    <p>
-      Значительная часть населения края живёт в Петропавловске-Камчатском,
-      Елизове и других населённых пунктах юга полуострова. В удалённых
-      районах есть небольшие поселения, связанные с рыболовством,
-      оленеводством и другими традиционными занятиями.
-    </p>
-    <p>
-      На Камчатке живут представители коренных малочисленных народов,
-      в том числе ительмены, коряки, эвены и алеуты. Их культура включает
-      традиционные ремёсла, праздники, языки и знания о природе.
-    </p>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Petropavlovsk_center_port.jpg?width=1200"
-            alt="Центр Петропавловска-Камчатского"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Культурное наследие Камчатки объединяет традиции разных народов Севера.
-    </p>
-  </section>
-
-  <section id="culture" data-title="Культура">
-    <h2>Культура и традиции</h2>
-    <p>
-      Культурная жизнь Камчатки объединяет традиции коренных народов,
-      современное искусство и тесную связь с природой. В регионе проходят
-      национальные праздники, фестивали и спортивные мероприятия.
-    </p>
-    <p>
-      Местная кухня включает рыбу, морепродукты, ягоды и другие продукты,
-      характерные для Дальнего Востока.
-    </p>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Koryak_traditional_dance.jpg?width=1200"
-            alt="Традиционный танец коренных народов"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Традиционные песни, танцы и ремёсла помогают сохранять культурное
-      наследие коренных народов Камчатки.
-    </p>
-  </section>
-
-  <section id="religion" data-title="Религия">
-    <h2>Религия и духовные традиции</h2>
-    <p>
-      В регионе существуют православные традиции и разнообразные формы
-      духовной культуры коренных народов. Их история связана с семейными
-      обычаями, местными праздниками и отношением к окружающей природе.
-    </p>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Собор Святой Живоначальной Троицы в Петропавловске-Камчатском.jpg?width=1200"
-            alt="Свято-Троицкий собор в Петропавловске-Камчатском"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      История Камчатки складывалась под влиянием разных культурных
-      и религиозных традиций.
-    </p>
-  </section>
-
-  <section id="people" data-title="Исследователи">
-    <h2>Исследователи Камчатки</h2>
-    <p>
-      Историю изучения Камчатки формировали путешественники,
-      мореплаватели, учёные и исследователи природы.
-    </p>
-    <ul>
-      <li>
-        <strong>Степан Крашенинников</strong> — исследователь Камчатки,
-        автор исторического описания полуострова.
-      </li>
-      <li>
-        <strong>Витус Беринг</strong> — мореплаватель, чьи экспедиции
-        сыграли важную роль в изучении северной части Тихого океана.
-      </li>
-      <li>
-        <strong>Современные учёные и путешественники</strong> —
-        изучают вулканы, животных, растения и климат региона.
-      </li>
-    </ul>
-
-    <img
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Stepan_Krasheninnikov.jpg?width=1000"
-            alt="Степан Крашенинников"
-            loading="lazy"
-    >
-
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Исследования Камчатки помогают лучше понимать вулканические процессы
-      и уникальные экосистемы полуострова.
-    </p>
-  </section>
-
-  <!-- МОЙ МАРШРУТ -->
-  <section id="guide" data-title="Мой маршрут">
-    <h2>Моя Камчатка: от озёр до вулканов</h2>
-
-    <p class="guide-intro">
-      Это мой маршрут по разной Камчатке: удалённые природные места на юге,
-      морская прогулка по Авачинской бухте, вулканы, застывшие лавовые поля,
-      чёрный песок и горячие источники.
-    </p>
-
-    <div class="guide-tags">
-      <span class="tag">🚚 Вахтовка</span>
-      <span class="tag">🛥️ Катер</span>
-      <span class="tag">🚙 Джипы</span>
-      <span class="tag">🌋 Вулканы</span>
-      <span class="tag">🌊 Океан</span>
-    </div>
-
-    <h3 class="guide-heading">01. Южная Камчатка — дикая природа</h3>
-    <p>
-      Первый этап путешествия — дорога на вахтовке и знакомство
-      с удалёнными уголками юга полуострова.
-    </p>
-
-    <div class="guide-grid">
-      <article class="guide-card">
-        <img
-          class="guide-card-photo"
-          src="/guide-cards/img.jpg"
-          alt="Курильское озеро"
-          loading="lazy"
-        >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 01</span>
-          <h4>Курильское озеро</h4>
-          <p>
-            Озеро на юге Камчатки, окружённое вулканическими ландшафтами
-            и дикой природой.
-          </p>
-          <span class="guide-transport">🚚 На вахтовке</span>
+        <div class="tags-container">
+            <span class="tag">Площадь: около 464 тыс. км²</span>
+            <span class="tag">Административный центр: Петропавловск-Камчатский</span>
+            <span class="tag">Вулканы и ледники</span>
         </div>
-      </article>
 
-      <article class="guide-card">
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_11.jpg"
-          alt="Посёлок Паужетка"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Klyuchevskaya_Sopka.jpg?width=1200"
+                alt="Вулканический пейзаж Камчатки"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 02</span>
-          <h4>Посёлок Паужетка</h4>
-          <p>
-            Небольшой населённый пункт на юге Камчатки,
-            ставший частью нашего путешествия.
-          </p>
-          <span class="guide-transport">🚚 На вахтовке</span>
-        </div>
-      </article>
 
-      <article class="guide-card">
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Камчатка входит в Тихоокеанское огненное кольцо —
+            область высокой сейсмической и вулканической активности.
+        </p>
+    </section>
+
+    <section id="resources" data-title="Ресурсы">
+        <h2>Природные ресурсы</h2>
+        <p>
+            Камчатка богата морскими биологическими ресурсами. Большое значение
+            имеют тихоокеанские лососи, крабы и другие морепродукты.
+        </p>
+        <p>
+            В регионе также есть геотермальные и минеральные источники.
+            Они представляют интерес для энергетики, отдыха и туризма.
+        </p>
+        <ul>
+            <li>Рыба и морепродукты.</li>
+            <li>Геотермальные и минеральные источники.</li>
+            <li>Вулканы, горы и природные территории.</li>
+            <li>Реки, озёра и океаническое побережье.</li>
+        </ul>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_1.jpg"
-          alt="Кутхины баты"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Uzon_caldera.jpg?width=1200"
+                alt="Кальдера Узон на Камчатке"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 03</span>
-          <h4>Кутхины баты</h4>
-          <p>
-            Необычные скальные образования из пемзы с причудливыми формами.
-            Здесь особенно заметно вулканическое происхождение региона.
-          </p>
-          <span class="guide-transport">🚚 На вахтовке</span>
-        </div>
-      </article>
-    </div>
 
-    <h3 class="guide-heading">02. Авачинская бухта — Камчатка с воды</h3>
-    <p>
-      На следующем этапе мы отправились на катере: смотрели на побережье,
-      скалы и морских птиц.
-    </p>
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Реки Камчатки имеют большое значение для нереста тихоокеанских лососей.
+        </p>
+    </section>
 
-    <div class="guide-grid">
-      <article class="guide-card">
+    <section id="economy" data-title="Экономика">
+        <h2>Экономика</h2>
+        <p>
+            Важнейшие отрасли экономики Камчатского края — рыболовство,
+            переработка морепродуктов, транспорт, энергетика и туризм.
+        </p>
+        <p>
+            Большие расстояния и сложный рельеф делают транспортную
+            инфраструктуру особенно важной. Для многих удалённых районов
+            существенную роль играет авиационное сообщение.
+        </p>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_3.jpg"
-          alt="Авачинская бухта"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Petropavlovsk-kamchatsky_seaport.jpg?width=1200"
+                alt="Морской порт Петропавловска-Камчатского"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 04</span>
-          <h4>Авачинская бухта</h4>
-          <p>
-            Большая бухта Тихого океана с видами на побережье,
-            сопки и вулканические склоны.
-          </p>
-          <span class="guide-transport">🛥️ На катере</span>
-        </div>
-      </article>
 
-      <article class="guide-card">
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Сезонность рыболовства и туристических поездок заметно влияет
+            на жизнь региона.
+        </p>
+    </section>
+
+    <section id="population" data-title="Население">
+        <h2>Население</h2>
+        <p>
+            Значительная часть населения края живёт в Петропавловске-Камчатском,
+            Елизове и других населённых пунктах юга полуострова. В удалённых
+            районах есть небольшие поселения, связанные с рыболовством,
+            оленеводством и другими традиционными занятиями.
+        </p>
+        <p>
+            На Камчатке живут представители коренных малочисленных народов,
+            в том числе ительмены, коряки, эвены и алеуты. Их культура включает
+            традиционные ремёсла, праздники, языки и знания о природе.
+        </p>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_2.jpg"
-          alt="Скалы Три Брата"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Petropavlovsk_center_port.jpg?width=1200"
+                alt="Центр Петропавловска-Камчатского"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 05</span>
-          <h4>Скалы Три Брата</h4>
-          <p>
-            Известные скалы у входа в Авачинскую бухту.
-            Одна из узнаваемых природных достопримечательностей побережья.
-          </p>
-          <span class="guide-transport">🛥️ На катере</span>
-        </div>
-      </article>
 
-      <article class="guide-card">
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Культурное наследие Камчатки объединяет традиции разных народов Севера.
+        </p>
+    </section>
+
+    <section id="culture" data-title="Культура">
+        <h2>Культура и традиции</h2>
+        <p>
+            Культурная жизнь Камчатки объединяет традиции коренных народов,
+            современное искусство и тесную связь с природой. В регионе проходят
+            национальные праздники, фестивали и спортивные мероприятия.
+        </p>
+        <p>
+            Местная кухня включает рыбу, морепродукты, ягоды и другие продукты,
+            характерные для Дальнего Востока.
+        </p>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_4.jpg"
-          alt="Морские птицы и рыбалка"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Koryak_traditional_dance.jpg?width=1200"
+                alt="Традиционный танец коренных народов"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 06</span>
-          <h4>Птицы и рыбалка</h4>
-          <p>
-            Морская прогулка — возможность наблюдать за птицами
-            и почувствовать атмосферу Тихого океана.
-          </p>
-          <span class="guide-transport">🛥️ На катере</span>
-        </div>
-      </article>
-    </div>
 
-    <h3 class="guide-heading">03. Вулканы и лавовые поля</h3>
-    <p>
-      Дальше — джипы, вулканические пейзажи, подъёмы и необычные
-      участки застывшей лавы.
-    </p>
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Традиционные песни, танцы и ремёсла помогают сохранять культурное
+            наследие коренных народов Камчатки.
+        </p>
+    </section>
 
-    <div class="guide-grid">
-      <article class="guide-card">
+    <section id="religion" data-title="Религия">
+        <h2>Религия и духовные традиции</h2>
+        <p>
+            В регионе существуют православные традиции и разнообразные формы
+            духовной культуры коренных народов. Их история связана с семейными
+            обычаями, местными праздниками и отношением к окружающей природе.
+        </p>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_5.jpg"
-          alt="Вулкан Горелый"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Собор Святой Живоначальной Троицы в Петропавловске-Камчатском.jpg?width=1200"
+                alt="Свято-Троицкий собор в Петропавловске-Камчатском"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 07</span>
-          <h4>Вулкан Горелый</h4>
-          <p>
-            Вулканический массив с кратерами и выразительными горными
-            пейзажами. Перед походом важно проверять условия маршрута.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
-        </div>
-      </article>
 
-      <article class="guide-card">
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            История Камчатки складывалась под влиянием разных культурных
+            и религиозных традиций.
+        </p>
+    </section>
+
+    <section id="people" data-title="Исследователи">
+        <h2>Исследователи Камчатки</h2>
+        <p>
+            Историю изучения Камчатки формировали путешественники,
+            мореплаватели, учёные и исследователи природы.
+        </p>
+        <ul>
+            <li>
+                <strong>Степан Крашенинников</strong> — исследователь Камчатки,
+                автор исторического описания полуострова.
+            </li>
+            <li>
+                <strong>Витус Беринг</strong> — мореплаватель, чьи экспедиции
+                сыграли важную роль в изучении северной части Тихого океана.
+            </li>
+            <li>
+                <strong>Современные учёные и путешественники</strong> —
+                изучают вулканы, животных, растения и климат региона.
+            </li>
+        </ul>
+
         <img
-          class="guide-card-photo"
-          src="/guide-cards/img_6.jpg"
-          alt="Толбачик"
-          loading="lazy"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Stepan_Krasheninnikov.jpg?width=1000"
+                alt="Степан Крашенинников"
+                loading="lazy"
         >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 08</span>
-          <h4>Толбачик и восхождение</h4>
-          <p>
-            Вулканические ландшафты, большие открытые пространства
-            и виды на горные массивы.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
+
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Исследования Камчатки помогают лучше понимать вулканические процессы
+            и уникальные экосистемы полуострова.
+        </p>
+    </section>
+
+    <!-- МОЙ МАРШРУТ -->
+    <section id="guide" data-title="Мой маршрут">
+        <h2>Моя Камчатка: от озёр до вулканов</h2>
+
+        <p class="guide-intro">
+            Это мой маршрут по разной Камчатке: удалённые природные места на юге,
+            морская прогулка по Авачинской бухте, вулканы, застывшие лавовые поля,
+            чёрный песок и горячие источники.
+        </p>
+
+        <div class="guide-tags">
+            <span class="tag">🚚 Вахтовка</span>
+            <span class="tag">🛥️ Катер</span>
+            <span class="tag">🚙 Джипы</span>
+            <span class="tag">🌋 Вулканы</span>
+            <span class="tag">🌊 Океан</span>
         </div>
-      </article>
 
-      <article class="guide-card">
-        <img
-          class="guide-card-photo"
-          src="/guide-cards/img_7.jpg"
-          alt="Мёртвый лес"
-          loading="lazy"
-        >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 09</span>
-          <h4>Мёртвый лес</h4>
-          <p>
-            Необычная территория, изменённая вулканической активностью.
-            Контраст тёмной земли и сухих стволов создаёт особый пейзаж.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
+        <h3 class="guide-heading">01. Южная Камчатка — дикая природа</h3>
+        <p>
+            Первый этап путешествия — дорога на вахтовке и знакомство
+            с удалёнными уголками юга полуострова.
+        </p>
+
+        <div class="guide-grid">
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img.jpg"
+                        alt="Курильское озеро"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 01</span>
+                    <h4>Курильское озеро</h4>
+                    <p>
+                        Озеро на юге Камчатки, окружённое вулканическими ландшафтами
+                        и дикой природой.
+                    </p>
+                    <span class="guide-transport">🚚 На вахтовке</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_11.jpg"
+                        alt="Посёлок Паужетка"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 02</span>
+                    <h4>Посёлок Паужетка</h4>
+                    <p>
+                        Небольшой населённый пункт на юге Камчатки,
+                        ставший частью нашего путешествия.
+                    </p>
+                    <span class="guide-transport">🚚 На вахтовке</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_1.jpg"
+                        alt="Кутхины баты"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 03</span>
+                    <h4>Кутхины баты</h4>
+                    <p>
+                        Необычные скальные образования из пемзы с причудливыми формами.
+                        Здесь особенно заметно вулканическое происхождение региона.
+                    </p>
+                    <span class="guide-transport">🚚 На вахтовке</span>
+                </div>
+            </article>
         </div>
-      </article>
 
-      <article class="guide-card">
-        <img
-          class="guide-card-photo"
-          src="/guide-cards/img_8.jpg"
-          alt="Лавовые поля"
-          loading="lazy"
-        >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 10</span>
-          <h4>Лавовые поля</h4>
-          <p>
-            Застывшая лава напоминает о силе вулканов и делает пейзаж
-            непохожим на привычную природу.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
+        <h3 class="guide-heading">02. Авачинская бухта — Камчатка с воды</h3>
+        <p>
+            На следующем этапе мы отправились на катере: смотрели на побережье,
+            скалы и морских птиц.
+        </p>
+
+        <div class="guide-grid">
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_3.jpg"
+                        alt="Авачинская бухта"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 04</span>
+                    <h4>Авачинская бухта</h4>
+                    <p>
+                        Большая бухта Тихого океана с видами на побережье,
+                        сопки и вулканические склоны.
+                    </p>
+                    <span class="guide-transport">🛥️ На катере</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_2.jpg"
+                        alt="Скалы Три Брата"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 05</span>
+                    <h4>Скалы Три Брата</h4>
+                    <p>
+                        Известные скалы у входа в Авачинскую бухту.
+                        Одна из узнаваемых природных достопримечательностей побережья.
+                    </p>
+                    <span class="guide-transport">🛥️ На катере</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_4.jpg"
+                        alt="Морские птицы и рыбалка"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 06</span>
+                    <h4>Птицы и рыбалка</h4>
+                    <p>
+                        Морская прогулка — возможность наблюдать за птицами
+                        и почувствовать атмосферу Тихого океана.
+                    </p>
+                    <span class="guide-transport">🛥️ На катере</span>
+                </div>
+            </article>
         </div>
-      </article>
-    </div>
 
-    <h3 class="guide-heading">04. Чёрный песок и горячая вода</h3>
+        <h3 class="guide-heading">03. Вулканы и лавовые поля</h3>
+        <p>
+            Дальше — джипы, вулканические пейзажи, подъёмы и необычные
+            участки застывшей лавы.
+        </p>
 
-    <div class="guide-grid">
-      <article class="guide-card">
-        <img
-          class="guide-card-photo"
-          src="/guide-cards/img_9.jpg"
-          alt="Халактырский пляж"
-          loading="lazy"
-        >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 11</span>
-          <h4>Халактырский пляж</h4>
-          <p>
-            Тихий океан, простор и знаменитый чёрный вулканический песок.
-            Отличное место для фотографий побережья.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
+        <div class="guide-grid">
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_5.jpg"
+                        alt="Вулкан Горелый"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 07</span>
+                    <h4>Вулкан Горелый</h4>
+                    <p>
+                        Вулканический массив с кратерами и выразительными горными
+                        пейзажами. Перед походом важно проверять условия маршрута.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_6.jpg"
+                        alt="Толбачик"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 08</span>
+                    <h4>Толбачик и восхождение</h4>
+                    <p>
+                        Вулканические ландшафты, большие открытые пространства
+                        и виды на горные массивы.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_7.jpg"
+                        alt="Мёртвый лес"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 09</span>
+                    <h4>Мёртвый лес</h4>
+                    <p>
+                        Необычная территория, изменённая вулканической активностью.
+                        Контраст тёмной земли и сухих стволов создаёт особый пейзаж.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_8.jpg"
+                        alt="Лавовые поля"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 10</span>
+                    <h4>Лавовые поля</h4>
+                    <p>
+                        Застывшая лава напоминает о силе вулканов и делает пейзаж
+                        непохожим на привычную природу.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
         </div>
-      </article>
 
-      <article class="guide-card">
-        <img
-          class="guide-card-photo"
-          src="/guide-cards/img_10.jpg"
-          alt="Паратунка"
-          loading="lazy"
-        >
-        <div class="guide-card-body">
-          <span class="guide-number">ТОЧКА 12</span>
-          <h4>Паратунка</h4>
-          <p>
-            Место, где можно отдохнуть в горячих источниках
-            после долгих переездов и прогулок.
-          </p>
-          <span class="guide-transport">🚙 На джипе</span>
+        <h3 class="guide-heading">04. Чёрный песок и горячая вода</h3>
+
+        <div class="guide-grid">
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_9.jpg"
+                        alt="Халактырский пляж"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 11</span>
+                    <h4>Халактырский пляж</h4>
+                    <p>
+                        Тихий океан, простор и знаменитый чёрный вулканический песок.
+                        Отличное место для фотографий побережья.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
+
+            <article class="guide-card">
+                <img
+                        class="guide-card-photo"
+                        src="/guide-cards/img_10.jpg"
+                        alt="Паратунка"
+                        loading="lazy"
+                >
+                <div class="guide-card-body">
+                    <span class="guide-number">ТОЧКА 12</span>
+                    <h4>Паратунка</h4>
+                    <p>
+                        Место, где можно отдохнуть в горячих источниках
+                        после долгих переездов и прогулок.
+                    </p>
+                    <span class="guide-transport">🚙 На джипе</span>
+                </div>
+            </article>
         </div>
-      </article>
-    </div>
-
-    <h3 class="guide-heading">Маршрут на карте</h3>
 
 
-    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A97c5a1b22a675c1b2bd3946bd9fcdcff2f7230453780d99b8486ff8b167e84e0&amp;width=670&amp;height=697&amp;lang=ru_RU&amp;scroll=true"></script>
+        <h3 class="guide-heading">Маршрут на карте</h3>
 
-    <p class="fact">
-      <strong>Мой маршрут:</strong>
-      юг Камчатки на вахтовке → морская прогулка на катере →
-      вулканические ландшафты на джипах → Халактырский пляж →
-      отдых в Паратунке.
-    </p>
-  </section>
 
-  <section id="media" data-title="Ссылки">
-    <h2>Дополнительные материалы</h2>
-    <p>
-      Эти ресурсы помогут узнать больше о Камчатке и подготовиться
-      к самостоятельному изучению региона.
-    </p>
+        <script type="text/javascript" charset="utf-8" async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A97c5a1b22a675c1b2bd3946bd9fcdcff2f7230453780d99b8486ff8b167e84e0&amp;width=670&amp;height=697&amp;lang=ru_RU&amp;scroll=true"></script>
 
-    <div class="links">
-      <a href="https://visitkamchatka.ru/"
-         target="_blank" rel="noopener noreferrer">
-        🌊 Туристический портал Камчатки
-      </a>
-      <a href="https://whc.unesco.org/en/list/765"
-         target="_blank" rel="noopener noreferrer">
-        🌋 UNESCO: Вулканы Камчатки
-      </a>
-      <a href="https://www.youtube.com/results?search_query=камчатка+документальный+фильм"
-         target="_blank" rel="noopener noreferrer">
-        🎬 Видео о Камчатке
-      </a>
-    </div>
+        <p class="fact">
+            <strong>Мой маршрут:</strong>
+            юг Камчатки на вахтовке → морская прогулка на катере →
+            вулканические ландшафты на джипах → Халактырский пляж →
+            отдых в Паратунке.
+        </p>
+    </section>
 
-    <p class="fact">
-      <strong>Интересный факт:</strong>
-      Погода на Камчатке может быстро меняться, поэтому маршруты
-      в горных и вулканических районах требуют подготовки.
-    </p>
-  </section>
+    <section id="guide-details" data-title="Детали поездки">
+        <h2>Детали поездки</h2>
+
+        <h3 class="guide-heading">Для кого этот маршрут?</h3>
+        <p>
+            Поездка на Камчатку лучше всего подходит активным путешественникам,
+            любителям дикой природы, гор и экстремальных видов спорта,
+            готовым к физическим нагрузкам и переменчивой погоде.
+        </p>
+
+        <h3 class="guide-heading">Когда лучше ехать?</h3>
+        <p>
+            Наш маршрут рассчитан на поездку летом.
+        </p>
+
+        <h3 class="guide-heading">Длительность</h3>
+        <p>
+            В поездку заложено 10 дней.
+        </p>
+        <h3 class="guide-heading">Бюджет</h3>
+        <p>
+            Билеты из Москвы в одну сторону обойдутся примерно в 17 000 на одного человека.
+        </p>
+        <h4>Перелёт: ~34 000 на человека</h4>
+        <p>
+            Для перемещения между локациями планируется на арендованном авто.
+            От 6 000 в день.
+        </p>
+        <h4>Транспорт: ~60 000</h4>
+        <p>Проживание будет где-то в гостиницах, где-то в патках.</p>
+        <p>Аренда палатки: ~800 в день.</p>
+        <p>Ночь в отеле: ~5 000</p>
+        <h4>Проживание: ~35 000 на человека</h4>
+        <h4>Еда: ~15 000 на человека</h4>
+
+        <h4>Итого: ~144 000</h4>
+    </section>
+
+    <section id="media" data-title="Ссылки">
+        <h2>Дополнительные материалы</h2>
+        <p>
+            Эти ресурсы помогут узнать больше о Камчатке и подготовиться
+            к самостоятельному изучению региона.
+        </p>
+
+        <div class="links">
+            <a href="https://visitkamchatka.ru/"
+               target="_blank" rel="noopener noreferrer">
+                🌊 Туристический портал Камчатки
+            </a>
+            <a href="https://whc.unesco.org/en/list/765"
+               target="_blank" rel="noopener noreferrer">
+                🌋 UNESCO: Вулканы Камчатки
+            </a>
+            <a href="https://www.youtube.com/results?search_query=камчатка+документальный+фильм"
+               target="_blank" rel="noopener noreferrer">
+                🎬 Видео о Камчатке
+            </a>
+        </div>
+
+        <p class="fact">
+            <strong>Интересный факт:</strong>
+            Погода на Камчатке может быстро меняться, поэтому маршруты
+            в горных и вулканических районах требуют подготовки.
+        </p>
+    </section>
 
 </main>
 
 <footer>
-  <div class="wrap">
-    Камчатка — место, где встречаются вулканы, горы и Тихий океан.
-  </div>
+    <div class="wrap">
+        Камчатка — место, где встречаются вулканы, горы и Тихий океан.
+    </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
