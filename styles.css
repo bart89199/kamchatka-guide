@@ -35,6 +35,10 @@ body {
 }
 
 .wrap {
+  width: max(100% - 2rem, 1080px);
+  margin-inline: auto;
+}
+.wrap-nav {
   width: max(100% - 2rem);
   margin-inline: auto;
 }
