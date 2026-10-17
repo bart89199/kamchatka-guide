@@ -35,11 +35,9 @@ body {
 }
 
 .wrap {
-  width: min(100% - 2rem, 1080px);
+  width: max(100% - 2rem);
   margin-inline: auto;
 }
-
-/* Шапка */
 
 header {
   position: relative;
@@ -94,7 +92,6 @@ h1 {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Навигация */
 
 nav {
   position: sticky;
@@ -162,7 +159,7 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-/* Основное содержимое */
+
 
 main {
   padding-top: 2rem;
@@ -233,7 +230,6 @@ p strong {
   color: #fff;
 }
 
-/* Теги */
 
 .tags-container,
 .guide-tags {
@@ -254,7 +250,6 @@ p strong {
   font-weight: 600;
 }
 
-/* Изображения в обычных разделах */
 
 section > img {
   display: block;
@@ -279,7 +274,6 @@ section > img {
   object-fit: cover;
 }
 
-/* Блок интересного факта */
 
 .fact {
   margin-top: 1.4rem;
@@ -299,8 +293,6 @@ section > img {
 .fact strong {
   color: var(--lava-glow);
 }
-
-/* Ссылки */
 
 .links {
   display: flex;
@@ -335,7 +327,6 @@ p a:hover {
   text-decoration: underline;
 }
 
-/* Мой маршрут */
 
 .guide-intro {
   max-width: 800px;
@@ -450,7 +441,6 @@ p a:hover {
   font-size: 0.83rem;
 }
 
-/* Интерактивная карта */
 
 .route-map {
   position: relative;
@@ -469,7 +459,6 @@ p a:hover {
   font-size: 0.85rem;
 }
 
-/* Маркеры на карте */
 
 .route-marker-wrapper {
   border: 0;
@@ -506,7 +495,6 @@ p a:hover {
   color: #ff8a50;
 }
 
-/* Нижняя часть страницы */
 
 footer {
   padding: 1.5rem 0;
@@ -517,7 +505,6 @@ footer {
   text-align: center;
 }
 
-/* Адаптация под телефон */
 
 @media (max-width: 650px) {
   header {
@@ -555,7 +542,6 @@ footer {
   }
 }
 
-/* Уменьшение анимаций по настройкам устройства */
 
 @media (prefers-reduced-motion: reduce) {
   *,
